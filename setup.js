@@ -1,5 +1,5 @@
 function setup() {
-    lab.spawn(dna.recard.Kinetix)
+    lab.spawn(dna.kinetix.Kinetix)
 
     lab.spawn(dna.target, {
         name: 'target',

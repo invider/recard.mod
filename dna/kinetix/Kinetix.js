@@ -6,8 +6,12 @@ class Kinetix {
         augment(this, st)
     }
 
+    push(key) {
+        this.keys.push(key)
+    }
+
     key(target, type, opt) {
-        const proto = dna.recard.key[type]
+        const proto = dna.kinetix.key[type]
         if (!proto) throw `unable to find transition [${type}]`
 
         const key = {}
@@ -15,7 +19,7 @@ class Kinetix {
 
         opt.target = target
         key.init(opt)
-        this.keys.push(key)
+        this.push(key)
     }
 
     linear(target, opt) {
