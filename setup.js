@@ -1,14 +1,28 @@
 function setup() {
     lab.spawn(dna.kinetix.Kinetix)
 
-    lab.spawn(dna.target, {
-        name: 'target',
-        x: rx(.5),
-        y: ry(.2),
-    })
     lab.spawn(dna.dcircle, {
         name: 'dcircle',
-        x: rx(.3),
+        x: rx(.2),
         y: ry(.2),
     })
+
+    lab.spawn(dna.dcircle, {
+        name: 'bcircle',
+        x: rx(.4),
+        y: ry(.2),
+    })
+
+    lab.spawn(dna.dcircle, {
+        name: 'fcircle',
+        x: rx(.6),
+        y: ry(.2),
+    })
+
+    lab.spawn(dna.target, {
+        name: 'target',
+        x: rx(.8),
+        y: ry(.2),
+    })
+
 }

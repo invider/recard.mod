@@ -10,9 +10,9 @@ class Kinetix {
         this.keys.push(key)
     }
 
-    key(target, type, opt) {
-        const proto = dna.kinetix.key[type]
-        if (!proto) throw `unable to find transition [${type}]`
+    key(target, opt) {
+        // TODO allow alternative key implementations
+        const proto = dna.kinetix.key
 
         const key = {}
         augment(key, proto)
@@ -20,10 +20,6 @@ class Kinetix {
         opt.target = target
         key.init(opt)
         this.push(key)
-    }
-
-    linear(target, opt) {
-        this.key(target, 'linear', opt)
     }
 
     evo(dt) {
