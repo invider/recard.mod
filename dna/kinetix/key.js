@@ -9,12 +9,17 @@
  *  * map(val) - map easing value to property value
  *  * apply(val) - apply updated value to the property
  */
+
+const df = {
+    timer: 0,
+    mark: 0,
+    period: 1,
+}
+
 module.exports = {
 
     init: function(st) {
-        this.dir = 1
-        this.timer = 0
-        this.mark = 0
+        augment(this, df)
 
         this.easing = dna.kinetix.easing.triangle
         if (st) {
@@ -56,7 +61,8 @@ module.exports = {
     evo: function(dt) {
         this.tick(dt)
 
-        this.apply( this.map( this.easing()))
+        const t = this.timer / this.period
+        this.apply( this.map( this.easing(t)))
     },
 
     kill() {

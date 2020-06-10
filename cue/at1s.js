@@ -68,15 +68,51 @@ module.exports = function() {
         key: 'a',
         from: 0,
         to: 1,
-        period: .5,
+        period: 2,
         loop: true,
     })
     kinetix.key(lab.target, {
         key: 'r',
         from: 0,
         to: 50,
-        period: .5,
+        period: 2,
         loop: true,
+    })
+
+    kinetix.key(lab.quad, {
+        key: 'r',
+        from: 0,
+        to: 75,
+        period: 2,
+        loop: true,
+        shape: 'quad',
+    })
+
+    kinetix.key(lab.cubic, {
+        key: 'r',
+        from: 0,
+        to: 75,
+        period: 2,
+        loop: true,
+        shape: 'cubic',
+    })
+
+    kinetix.key(lab.quart, {
+        key: 'r',
+        from: 0,
+        to: 75,
+        period: 2,
+        loop: true,
+        shape: 'quart',
+    })
+
+    kinetix.key(lab.elastic, {
+        key: 'r',
+        from: 0,
+        to: 75,
+        period: 2,
+        loop: true,
+        shape: 'elastic',
     })
 
 }
