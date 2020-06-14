@@ -17,6 +17,7 @@ class Kinetix {
         const key = {}
         augment(key, proto)
 
+        opt.kinetix = this
         opt.target = target
         key.init(opt)
         this.push(key)

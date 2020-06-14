@@ -43,7 +43,11 @@ function setup() {
         y: ry(.4),
     })
 
-
+    lab.spawn(dna.dcircle, {
+        name: 'cubicBezier',
+        x: rx(.2),
+        y: ry(.6),
+    })
 
 
     lab.spawn(dna.target, {

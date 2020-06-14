@@ -46,6 +46,7 @@ module.exports = {
     },
 
     step() {
+        if (this.onCompleted) this.onCompleted()
         if (!this.loop) this.kill()
     },
 

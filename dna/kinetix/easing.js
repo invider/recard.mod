@@ -73,4 +73,17 @@ const easing = {
         );
         */
     },
+
+    cubicBezier: function(t) {
+        t = t % 1
+        const p1x = this.p1x || .17
+        const p1y = this.p1y || .67
+        const p2x = this.p2x || .83
+        const p2y = this.p2y || .67
+        const val = (3*t*pow(1 - t, 2)
+            * p1x + 3*t*t*(1 - t)
+            * p2x + t*t*t)
+        
+        return val
+    },
 }
