@@ -1,24 +1,26 @@
+const maxR = 50
+
 function startKinetix() {
     const kinetix = lab.kinetix
 
-    kinetix.key(lab.dcircle, {
+    kinetix.key(lab.linear, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
     })
 
-    kinetix.key(lab.bcircle, {
+    kinetix.key(lab.sin, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'sin',
     })
 
-    kinetix.key(lab.bcircle, {
+    kinetix.key(lab.sin, {
         key: 'a',
         from: 0,
         to: 1,
@@ -27,10 +29,10 @@ function startKinetix() {
         shape: 'sin',
     })
 
-    kinetix.key(lab.fcircle, {
+    kinetix.key(lab.saw, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'saw',
@@ -47,7 +49,7 @@ function startKinetix() {
     kinetix.key(lab.target, {
         key: 'r',
         from: 0,
-        to: 50,
+        to: maxR,
         period: 2,
         loop: true,
     })
@@ -55,7 +57,7 @@ function startKinetix() {
     kinetix.key(lab.quad, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'quad',
@@ -64,7 +66,7 @@ function startKinetix() {
     kinetix.key(lab.cubic, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'cubic',
@@ -73,7 +75,7 @@ function startKinetix() {
     kinetix.key(lab.quart, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'quart',
@@ -82,7 +84,7 @@ function startKinetix() {
     kinetix.key(lab.elastic, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'elastic',
@@ -91,25 +93,26 @@ function startKinetix() {
     kinetix.key(lab.cubicBezier, {
         key: 'r',
         from: 0,
-        to: 75,
+        to: maxR,
         period: 2,
         loop: true,
         shape: 'cubicBezier',
     })
 
     // animate circle over the screen
-    kinetix.key(lab.circle, {
+    kinetix.key(lab.sequence, {
         key: 'x',
-        from: rx(.2),
+        from: rx(.1),
         to:   rx(.8),
+        hold: 5,
         period: 5,
         loop: false,
 
         onCompleted: function() {
             log('next')
-            kinetix.key(lab.circle, {
+            kinetix.key(lab.sequence, {
                 key: 'x',
-                from: lab.circle.x,
+                from: lab.sequence.x,
                 to:   rx(.2),
                 period: 5,
                 loop: false,
@@ -118,19 +121,20 @@ function startKinetix() {
         }
     })
 
-    kinetix.key(lab.circle, {
+    kinetix.key(lab.sequence, {
         key: 'r',
         from: 10,
         to:   50,
-        period: .5,
+        period: 1,
         loop: true,
         //shape: 'saw',
     })
 
-    kinetix.key(lab.circle, {
+    kinetix.key(lab.sequence, {
         key: 'y',
-        from: ry(.4),
-        to:   ry(.6),
+        from: ry(.6),
+        to:   ry(.8),
+        hold: 5,
         period: 5,
         loop: false,
         shape: 'sin',

@@ -7,6 +7,7 @@ function onSpawn(st) {
     this.s = .5
     this.l = .5
     augment(this, st)
+    this.baseR = this.r
 }
 
 function draw() {
@@ -20,5 +21,13 @@ function draw() {
     circle(x, y, .6*r)
 
     alpha(1)
-}
 
+    if (this.name) {
+        font('24px moon')
+        baseTop()
+        alignCenter()
+        fill( hsl(this.h, this.s, this.l) )
+        to: 75,
+        text(this.name, this.x, this.y + this.baseR + 10)
+    }
+}

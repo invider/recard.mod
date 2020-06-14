@@ -1,7 +1,7 @@
 function init() {
-    this.x = rx(.5)
-    this.y = ry(.5)
-    this.r = 75
+    this.x = rx(.1)
+    this.y = ry(.6)
+    this.r = 20
 }
 
 function draw() {

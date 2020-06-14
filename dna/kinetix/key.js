@@ -16,9 +16,17 @@ const df = {
     period: 1,
 }
 
+function tickWithHold(dt) {
+    if (this.hold > 0) {
+        this.hold -= dt
+    } else {
+        this.timer += dt
+    }
+}
+
 module.exports = {
 
-    init: function(st) {
+    setup: function(st) {
         augment(this, df)
 
         this.easing = dna.kinetix.easing.triangle
@@ -34,11 +42,16 @@ module.exports = {
         }
 
         augment(this, st)
+
+        // configure tick
+        if (this.hold && this.hold > 0) {
+            this.tick = tickWithHold
+        }
     },
 
     activate() {
         this.active = true
-        if (this.onActivate) this.onActivate()
+        if (this.onActivated) this.onActivated()
     },
 
     tick(dt) {

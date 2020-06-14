@@ -11,6 +11,10 @@ class Kinetix {
     }
 
     key(target, opt) {
+        if (!target) {
+            log.warn('skipping the key - no kinetix target specified!')
+            return
+        }
         // TODO allow alternative key implementations
         const proto = dna.kinetix.key
 
@@ -19,7 +23,7 @@ class Kinetix {
 
         opt.kinetix = this
         opt.target = target
-        key.init(opt)
+        key.setup(opt)
         this.push(key)
     }
 
