@@ -100,7 +100,7 @@ function startKinetix() {
     })
 
     // animate circle over the screen
-    kinetix.key(lab.sequence, {
+    const k1 = kinetix.key(lab.sequence, {
         key: 'x',
         from: rx(.1),
         to:   rx(.8),
@@ -110,16 +110,46 @@ function startKinetix() {
 
         onCompleted: function() {
             log('next')
-            kinetix.key(lab.sequence, {
-                key: 'x',
-                from: lab.sequence.x,
-                to:   rx(.2),
-                period: 5,
-                loop: false,
-                shape: 'cubic',
-            })
         }
     })
+    const k2 = k1.then( lab.sequence, {
+        key: 'x',
+        from: rx(.8),
+        to:   rx(.2),
+        period: 5,
+        loop: false,
+        shape: 'cubic',
+
+        onCompleted: function() {
+            log('step2 done')
+        }
+    })
+    const k3 = k2.then( lab.sequence, {
+        key: 'x',
+        from: rx(.2),
+        to:   rx(.8),
+        period: 5,
+        loop: false,
+        shape: 'quad',
+
+        onCompleted: function() {
+            log('step3 done')
+        }
+    })
+    const k4 = k3.then( lab.sequence, {
+        key: 'x',
+        from: rx(.8),
+        to:   rx(.2),
+        period: 8,
+        loop: false,
+        shape: 'elastic',
+
+        onCompleted: function() {
+            log('step4 done')
+        }
+    })
+
+
 
     kinetix.key(lab.sequence, {
         key: 'r',
@@ -140,4 +170,65 @@ function startKinetix() {
         shape: 'sin',
     })
 
+    // meters
+    kinetix.key(lab.cpu1, {
+        key: 'value',
+        from: 0,
+        to:   .7,
+        period: 2,
+        loop: true,
+        shape: 'triangle',
+    })
+    kinetix.key(lab.cpu2, {
+        key: 'value',
+        from: 0,
+        to:   1,
+        period: 5,
+        loop: true,
+        shape: 'cubic',
+    })
+    kinetix.key(lab.cpu3, {
+        key: 'value',
+        from: 0,
+        to:   1,
+        period: 5,
+        loop: true,
+        shape: 'sin',
+    })
+
+    kinetix.key(lab.line1, {
+        key: 'value',
+        from: 0,
+        to:   1,
+        period: 8,
+        loop: true,
+        shape: 'triangle',
+    })
+
+    kinetix.key(lab.line2, {
+        key: 'value',
+        from: 0,
+        to:   1,
+        period: 8,
+        loop: true,
+        shape: 'quad',
+    })
+
+    kinetix.key(lab.line3, {
+        key: 'value',
+        from: 0,
+        to:   1,
+        period: 8,
+        loop: true,
+        shape: 'cubic',
+    })
+
+    kinetix.key(lab.line4, {
+        key: 'value',
+        from: 0,
+        to:   1,
+        period: 8,
+        loop: true,
+        shape: 'elastic',
+    })
 }

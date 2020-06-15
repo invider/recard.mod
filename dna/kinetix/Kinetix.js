@@ -25,6 +25,8 @@ class Kinetix {
         opt.target = target
         key.setup(opt)
         this.push(key)
+
+        return key
     }
 
     evo(dt) {

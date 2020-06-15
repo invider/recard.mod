@@ -28,6 +28,7 @@ module.exports = {
 
     setup: function(st) {
         augment(this, df)
+        this.next = []
 
         this.easing = dna.kinetix.easing.triangle
         if (st) {
@@ -79,10 +80,18 @@ module.exports = {
         this.apply( this.map( this.easing(t)))
     },
 
+    then(target, opt) {
+        opt.prev = this
+        const key = this.kinetix.key(target, opt)
+        this.next.push(key)
+        return key
+    },
+
     kill() {
         this.active = false
         this.dead = true
 
         // TODO enable next
+        this.next.forEach(n => n.activate())
     },
 }
