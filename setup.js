@@ -90,35 +90,37 @@ function setup() {
     })
 
     // line meters
+    const w = 200
+    const baseX = rx(.8) - w/2
     lab.spawn(dna.hud.LMeter, {
         name: 'line1',
-        x: rx(.7),
+        x: baseX,
         y: ry(.7),
-        w: 200,
+        w: w,
         color: '#38e8bf',
         value: 0,
     })
     lab.spawn(dna.hud.LMeter, {
         name: 'line2',
-        x: rx(.7),
+        x: baseX,
         y: ry(.77),
-        w: 200,
+        w: w,
         color: '#dc1aed',
         value: 0,
     })
     lab.spawn(dna.hud.LMeter, {
         name: 'line3',
-        x: rx(.7),
+        x: baseX,
         y: ry(.84),
-        w: 200,
+        w: w,
         color: '#2672ed',
         value: 0,
     })
     lab.spawn(dna.hud.LMeter, {
         name: 'line4',
-        x: rx(.7),
+        x: baseX,
         y: ry(.91),
-        w: 200,
+        w: w,
         color: '#edb047',
         value: 0,
     })
