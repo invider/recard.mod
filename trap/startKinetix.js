@@ -37,6 +37,14 @@ function startKinetix() {
         loop: true,
         shape: 'saw',
     })
+    kinetix.key(lab.saw, {
+        key: 's',
+        from: 0,
+        to:   1,
+        period: 2,
+        loop: true,
+        shape: 'saw',
+    })
 
 
     kinetix.key(lab.target, {
@@ -53,11 +61,26 @@ function startKinetix() {
         period: 2,
         loop: true,
     })
+    kinetix.key(lab.target, {
+        key: 'h',
+        from: 0,
+        to: 1,
+        period: 2,
+        loop: true,
+    })
 
     kinetix.key(lab.quad, {
         key: 'r',
         from: 0,
         to: maxR,
+        period: 2,
+        loop: true,
+        shape: 'quad',
+    })
+    kinetix.key(lab.quad, {
+        key: 'l',
+        from: 0,
+        to:   1,
         period: 2,
         loop: true,
         shape: 'quad',
